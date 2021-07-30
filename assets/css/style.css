@@ -1,0 +1,37 @@
+body {
+    background-color: #6f0a19 !important;
+    margin: 10px;
+    padding: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form > div > a {
+    text-decoration: none;
+}
+
+#resizedForm {
+    background-color: white;
+    width: 50%;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform : translate(-50%, -50%);
+
+    border-radius: 30px;
+    padding: 30px;
+}
+
+form > div > #sapienzaLogo {
+    width: 50%;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    width: 40%;
+    margin: 10px;
+}
