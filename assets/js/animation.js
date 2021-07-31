@@ -2,9 +2,9 @@
 
     $(".btn-primary").on("click", function () {
         var email = $("#exampleInputEmail1").val();
-        var password = $("exampleInputPassword1").val();
+        var password = $("#exampleInputPassword1").val();
 
-        var api = "insert here dev url"; // inserting the AWS url dev api
+        var api = "https://u4s9rz700f.execute-api.us-east-1.amazonaws.com/Dev/users"; // inserting the AWS url dev api
 
         var params = {
             "email": email,
