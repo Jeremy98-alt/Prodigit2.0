@@ -32,7 +32,7 @@ form > div > #sapienzaLogo {
     margin-right: auto;
 }
 
-.btn {
+#resizedForm .btn {
     width: 40%;
     margin: 10px;
 }
@@ -62,6 +62,13 @@ nav #escIcon{
 }
 
 .mainMenu{
+    background-color: white;
+    margin-top: 2%;
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+}
+
+.secondMenu{
     background-color: white;
     margin-top: 2%;
     border-radius: 20px;

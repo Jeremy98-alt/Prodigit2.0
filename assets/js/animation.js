@@ -13,7 +13,7 @@
       
             $.ajax({
                 type: "POST",
-                url : "https://07jol9qqrc.execute-api.us-east-1.amazonaws.com/Dev/users",
+                url : "https://4qzffwg640.execute-api.us-east-1.amazonaws.com/Dev/users",
                 dataType: "json",
                 crossDomain: "true",
                 contentType: "application/json; charset=utf-8",
@@ -45,7 +45,7 @@
       
             $.ajax({
                 type: "POST",
-                url : "https://07jol9qqrc.execute-api.us-east-1.amazonaws.com/Dev/users",
+                url : "https://4qzffwg640.execute-api.us-east-1.amazonaws.com/Dev/users",
                 dataType: "json",
                 crossDomain: "true",
                 contentType: "application/json; charset=utf-8",
