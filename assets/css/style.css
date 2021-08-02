@@ -74,3 +74,8 @@ nav #escIcon{
     border-radius: 20px;
     padding: 20px 20px 20px 20px;
 }
+
+.form-select{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
