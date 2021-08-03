@@ -1,8 +1,9 @@
 (function(){
 
     $(".btn-primary").on("click", function () {
-        
-        if($('.btn-primary').text() == "Submit") { // check if it means to register or log-in in the userPage
+        var BTN = $('.btn-primary').text();
+
+        if(BTN.trim() == "Submit") { // check if it means to register or log-in in the userPage
             var email = $("#exampleInputEmail1").val();
             var password = $("#exampleInputPassword1").val();
 
@@ -13,14 +14,15 @@
       
             $.ajax({
                 type: "POST",
-                url : "https://4qzffwg640.execute-api.us-east-1.amazonaws.com/Dev/users",
+                url : "https://euwujov5gc.execute-api.us-east-1.amazonaws.com/Dev/users",
                 dataType: "json",
                 crossDomain: "true",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify(data),
     
-                success: function () {
+                success: function (e) {
                     // clear form and show a success message
+                    console.log(e);
                     alert("Log-in Success");
 
                     // save the session in js
@@ -45,7 +47,7 @@
       
             $.ajax({
                 type: "POST",
-                url : "https://4qzffwg640.execute-api.us-east-1.amazonaws.com/Dev/users",
+                url : "https://euwujov5gc.execute-api.us-east-1.amazonaws.com/Dev/users",
                 dataType: "json",
                 crossDomain: "true",
                 contentType: "application/json; charset=utf-8",

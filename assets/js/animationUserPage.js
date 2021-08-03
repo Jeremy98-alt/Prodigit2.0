@@ -11,22 +11,20 @@
     function updateAvailableReservations(){ /* Updating the reservation menu for userPage */
         $.ajax({
             type: "GET",
-            url : "https://4qzffwg640.execute-api.us-east-1.amazonaws.com/Dev/users",
+            url : "https://euwujov5gc.execute-api.us-east-1.amazonaws.com/Dev/bookingseats",
             dataType: "json",
             crossDomain: "true",
             contentType: "application/json; charset=utf-8",
 
             success: function (e) {
                 // clear form and show a success message
-                var responseParsed = $.parseJSON(e);
-                
-                for(var i = 0; i < responseParsed.length; ++i){
+                for(var key in e){
                     var row = "<tr>" + 
-                                "<th scope='row'>" + responseParsed[i].course + "</th>" +
-                                "<td>" + responseParsed[i].building + "</td>" +
-                                "<td>" + responseParsed[i].room + "</td>" +
-                                "<td>" + responseParsed[i].typeReservation + "</td>" +
-                                "<td>" + responseParsed[i].seatsAvailable + "</td>" +
+                                "<th scope='row'>" + e[key].course + "</th>" +
+                                "<td>" + e[key].building + "</td>" +
+                                "<td>" + e[key].room + "</td>" +
+                                "<td>" + e[key].typeReservation + "</td>" +
+                                "<td>" + e[key].seatsAvailable + "</td>" +
                               "</tr>"; 
 
                     $(".mainMenu > .table > tbody").append(row);  
@@ -41,27 +39,40 @@
     }
 
     function showReservationsBooked(){ /* Show all reservations by a particular user */
+        var data = {
+            email: sessionStorage.getItem('email')
+        }
+        
         $.ajax({
-            type: "GET",
-            url : "https://4qzffwg640.execute-api.us-east-1.amazonaws.com/Dev/users",
+            type: "POST",
+            url : "https://euwujov5gc.execute-api.us-east-1.amazonaws.com/Dev/reservations",
             dataType: "json",
             crossDomain: "true",
             contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
 
             success: function (e) {
-                // clear form and show a success message
-                var responseParsed = $.parseJSON(e);
-                
-                for(var i = 0; i < responseParsed.length; ++i){
+                // clear form and show a success message                
+                if(e != "user doesn't book anything"){
+                    for(var key in e){
+                        var row = "<tr>" + 
+                                    "<th scope='row'>" + e[key].email + "</th>" +
+                                    "<td>" + e[key].course + "</td>" +
+                                    "<td>" + e[key].room + "</td>" +
+                                    "<td>" + e[key].building + "</td>" +
+                                    "<td>" + e[key].date + "</td>" +
+                                    "<td>" + e[key].time + "</td>" +
+                                    "<td><a href='removeSeat'>Dismiss</a></td>" +
+                                  "</tr>"; 
+    
+                        $(".Booked > .table > tbody").append(row);  
+                    }
+                } else {
                     var row = "<tr>" + 
-                                "<th scope='row'>" + responseParsed[i].course + "</th>" +
-                                "<td>" + responseParsed[i].building + "</td>" +
-                                "<td>" + responseParsed[i].room + "</td>" +
-                                "<td>" + responseParsed[i].typeReservation + "</td>" +
-                                "<td>" + responseParsed[i].seatsAvailable + "</td>" +
+                                "<th scope='row' colspan='7' style='text-align:center'>No Booked Seat</th>" +
                               "</tr>"; 
 
-                    $(".mainMenu > .table > tbody").append(row);  
+                    $(".Booked > .table > tbody").append(row);  
                 }
                 
             },
@@ -89,10 +100,11 @@
     $(".btn-outline-secondary").on("click", function(){
         // get item values to insert in DynamoDB proper table
         var inTime = $(".inTime").children("option:selected").val();
-        var outTime = $(".inTime").children("option:selected").val();
+        var outTime = $(".outTime").children("option:selected").val();
         var course = $(".form-control").val();
 
         var data = {
+            'email': sessionStorage.getItem('email'),
             'inTime': inTime,
             'outTime': outTime,
             'course': course
@@ -100,7 +112,7 @@
 
         $.ajax({
             type: "POST",
-            url : "https://4qzffwg640.execute-api.us-east-1.amazonaws.com/Dev/users",
+            url : "https://euwujov5gc.execute-api.us-east-1.amazonaws.com/Dev/reservations",
             dataType: "json",
             crossDomain: "true",
             contentType: "application/json; charset=utf-8",
@@ -109,7 +121,7 @@
             success: function () {
                 // clear form and show a success message
                 alert("Reserved a seat");
-                $(location).reload();
+                location.reload();
             },
             
             error: function () {
