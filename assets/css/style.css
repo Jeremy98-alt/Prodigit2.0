@@ -79,3 +79,7 @@ nav #escIcon{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.Booked a {
+    text-decoration: none !important;
+}
