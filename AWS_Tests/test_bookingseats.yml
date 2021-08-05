@@ -1,19 +1,18 @@
 config:
-  target: "https://90etzbh1hf.execute-api.us-east-1.amazonaws.com/dev" # change this every time
+  target: "https://mrptcqlxba.execute-api.us-east-1.amazonaws.com/Dev" # change this every time
   phases:
-    - duration: 120
-      arrivalRate: 3
-      name: Warm up
     - duration: 300
+      arrivalRate: 10
+      name: Warm up
+    - duration: 600
       arrivalRate: 5
       rampTo: 50
       name: Ramp up load
-    - duration: 600
+    - duration: 900
       arrivalRate: 10
       name: Sustained load
-
 scenarios:
-  - name: "testPrenot"
+  - name: "testBooking"
     flow:
       - get:
           url: "/bookingseats"

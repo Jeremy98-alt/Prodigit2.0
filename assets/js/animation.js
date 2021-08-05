@@ -14,7 +14,7 @@
       
             $.ajax({
                 type: "POST",
-                url : "https://1e4he951kb.execute-api.us-east-1.amazonaws.com/Dev/users",
+                url : "https://mrptcqlxba.execute-api.us-east-1.amazonaws.com/Dev/users",
                 dataType: "json",
                 crossDomain: "true",
                 contentType: "application/json; charset=utf-8",
@@ -47,7 +47,7 @@
       
             $.ajax({
                 type: "POST",
-                url : "https://1e4he951kb.execute-api.us-east-1.amazonaws.com/Dev/users",
+                url : "https://mrptcqlxba.execute-api.us-east-1.amazonaws.com/Dev/users",
                 dataType: "json",
                 crossDomain: "true",
                 contentType: "application/json; charset=utf-8",

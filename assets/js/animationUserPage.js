@@ -27,7 +27,7 @@
     function updateAvailableReservations(){ /* Updating the reservation menu for userPage */
         $.ajax({
             type: "GET",
-            url : "https://1e4he951kb.execute-api.us-east-1.amazonaws.com/Dev/bookingseats",
+            url : "https://mrptcqlxba.execute-api.us-east-1.amazonaws.com/Dev/bookingseats",
             dataType: "json",
             crossDomain: "true",
             contentType: "application/json; charset=utf-8",
@@ -61,7 +61,7 @@
         
         $.ajax({
             type: "POST",
-            url : "https://1e4he951kb.execute-api.us-east-1.amazonaws.com/Dev/reservations",
+            url : "https://mrptcqlxba.execute-api.us-east-1.amazonaws.com/Dev/reservations",
             dataType: "json",
             crossDomain: "true",
             contentType: "application/json; charset=utf-8",
@@ -126,7 +126,7 @@
 
         $.ajax({
             type: "POST",
-            url : "https://1e4he951kb.execute-api.us-east-1.amazonaws.com/Dev/reservations",
+            url : "https://mrptcqlxba.execute-api.us-east-1.amazonaws.com/Dev/reservations",
             dataType: "json",
             crossDomain: "true",
             contentType: "application/json; charset=utf-8",
@@ -161,7 +161,7 @@
 
         $.ajax({
             type: "POST",
-            url : "https://1e4he951kb.execute-api.us-east-1.amazonaws.com/Dev/reservations",
+            url : "https://mrptcqlxba.execute-api.us-east-1.amazonaws.com/Dev/reservations",
             dataType: "json",
             crossDomain: "true",
             contentType: "application/json; charset=utf-8",

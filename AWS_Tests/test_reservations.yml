@@ -1,0 +1,38 @@
+config:
+  target: "https://mrptcqlxba.execute-api.us-east-1.amazonaws.com/Dev"
+  payload:
+    - path: "./UserReservations.csv"
+      fields:
+        - "email"
+        - "password"
+        - "course"
+        - "date"
+        - "inTime"
+        - "outTime"
+      order: sequence
+      skipHeader: true
+      delimiter: ","
+  phases:
+    - duration: 300
+      arrivalRate: 10
+      name: Warm up
+    - duration: 600
+      arrivalRate: 5
+      rampTo: 50
+      name: Ramp up load
+    - duration: 900
+      arrivalRate: 10
+      name: Sustained load
+scenarios:
+  - flow:
+    - post:
+        url: "/reservations"
+        json:
+          email: "{{ email }}"
+          course: "{{ course }}"
+          date: "{{ date }}"
+          inTime: "{{ inTime }}"
+          outTime: "{{ outTime }}"
+
+# First of all, is important to install artillery, here there is the official guide: https://artillery.io/docs/guides/getting-started/installing-artillery.html
+## IMPORTANT to have the last version of npm, node.js component to install every dependency you want
