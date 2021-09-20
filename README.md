@@ -21,7 +21,7 @@ The implementation will consist in utilizing different AWS resources, such as: *
 We will upload the front end of the website on the **S3 Bucket**, and it will be hosted in one of the two instances mentioned in the previous subsection. After that, we will create a certain number of **Lamda Funcitons**, one for each feature (this is the microservices part). Data will be stored in the database.
 The reason of using **AWS Lambda**, is to create a fully scalable web application, we want to separate all services that the app requires, so it can be scaled on demand.  Actually, the goal is to have the following services available in our application:
 *First time registration service - Query for finding the building - Query for finding lectures - Query for choosing the day and hour - Query to reserve the seat - Edit user reservations service*
-## Technical sound and detailed test/validation
+## Technical sound and detailed test/validation [To Be Implemented...]
 
 ![secondos](https://user-images.githubusercontent.com/69036405/127035166-1d54a9c8-5a2f-42e3-aa49-b69393d11d4b.png)
 
