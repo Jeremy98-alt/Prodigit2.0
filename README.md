@@ -9,13 +9,13 @@ In this subchapter we describe the last requirement that we want to satisfy in o
 - A **design** part
 - An **implementation** part
 - A **technically sound and detailed test/validation** part 
-## Design Part
+## Design Part [Changed...]
 We will create a website, built with: Bootstrap, js, css, html5 and all that is needed to create a responsive website.
 Using this site you will be able to book a seat, choose the exact day and time, check all of your bookings to edit or delete them.
 
 <img width="706" alt="primos" src="https://user-images.githubusercontent.com/69036405/127034111-5a5d1125-94bf-493c-91a2-d39541d211b9.png">
 
-As we can see int he image above, we are planning to realize one of these two strategies, we will choose according to their neatness. So the idea is to use either **Amazon CloudFront** or **Amazon EC2** to host the front end of the website. All the features will be implemented as microservices. Our features are linked to **Database instances**, we will choose between **Amazon Aurora**  or **Amazon DynamoDB**.  Users will interact with the site, using all of the available features. We can obtain stats from the interactions that will be done. Everything is created inside AWS. 
+As we can see int he image above, we are planning to realize one of these two strategies, we will choose according to their neatness. So the idea is to use either **Amazon CloudFront** or **Amazon EC2** to host the front end of the website. All the features will be implemented as microservices. Our features are linked to **Database instances**, we will choose between **Amazon Aurora**  or **Amazon DynamoDB**, but at the end we choose **Amazon DynamoDB**.  Users will interact with the site, using all of the available features. We can obtain stats from the interactions that will be done. Everything is created inside AWS. 
 ## Implementation Part
 The implementation will consist in utilizing different AWS resources, such as: **Amazon S3 Bucket**, **Amazon CloudFront**, **AWS Lambda**, **Amazon Databases**, **Amazon CloudWatch**, etc...
 We will upload the front end of the website on the **S3 Bucket**, and it will be hosted in one of the two instances mentioned in the previous subsection. After that, we will create a certain number of **Lamda Funcitons**, one for each feature (this is the microservices part). Data will be stored in the database.
@@ -28,3 +28,10 @@ The reason of using **AWS Lambda**, is to create a fully scalable web applicatio
 As depicted in the image above, our microservices will be stressed out and analyzed using **Amazon CloudWatch**. The idea is to control the delays caused by multiple and simultaneous virtual user actions (thousands of users) and monitor everything using the built-in function of CloudWatch.
 After that, the intention is to represent CloudWatch logs, and we have other two ways in mind, to obtain that. First idea, is to use **Amazon ElasticSearch Sevice** for indexing and \textbf{Kibana} for the effective representation. In the other case, we will use the combination of **AWS Glue**, **AWS Athena** and **AWS QuickSight**.
 
+## Further Works
+- Try to switch to a Relational Database, such as Amazon RDS or Aurora
+- Try to implement a Serverfull Architecture and compare it with the Serverless approach in terms of performance and costs
+- Run more detailed tests and explore other metrics on API Gateway and DynamoDB usage
+- Build a Data Analytics pipeline to collect users and trac data and display some aggregated statistics on the main page.
+
+Some of the services that we planned to use were not available on our standard student account, and in the future we might try to use them on a complete account.
