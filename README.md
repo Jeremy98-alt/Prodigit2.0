@@ -12,7 +12,7 @@ In this subchapter we describe the last requirement that we want to satisfy in o
 - A **design** part
 - An **implementation** part
 - A **technically sound and detailed test/validation** part 
-- 
+
 ## Design Part [Changed...]
 We will create a website, built with: Bootstrap, js, css, html5 and all that is needed to create a responsive website.
 Using this site you will be able to book a seat, choose the exact day and time, check all of your bookings to edit or delete them.
